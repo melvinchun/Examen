@@ -28,22 +28,21 @@ void Stack::push(int newNumber){
 
 int Stack::pop(){
 	int resp=0;
-	if(size>0){
-		resp=array[--size];
-		int* temp=new int[size];
-
-		for (int i = 0; i <size; ++i){
-			temp[i]=array[i];
-		}
-		delete[] array;
-		array = new int[size];
-		for (int i = 0; i < size; ++i){
-			array[i]=temp[i];
-		}
-		return resp;
-	}else{
+	if(size==0){
 		throw "Ya no hay elementos";
 	}
+	resp=array[--size];
+	int* temp=new int[size];
+
+	for (int i = 0; i <size; ++i){
+		temp[i]=array[i];
+	}
+	delete[] array;
+	array = new int[size];
+	for (int i = 0; i < size; ++i){
+		array[i]=temp[i];
+	}
+	return resp;
 
 }
 
