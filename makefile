@@ -1,6 +1,6 @@
-exe: main.cpp stack.o
-	g++ main.cpp stack.o -lncurses -o exe
-stack.o: stack.hpp stack.cpp
-	g++ -c stack.cpp
+exe: main.cpp Stack.o
+	g++ main.cpp Stack.o -lncurses -o exe
+Stack.o: Stack.hpp Stack.cpp
+	g++ -c Stack.cpp
 rm:
 	rm *.o

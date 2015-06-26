@@ -1,5 +1,7 @@
-#include "Stack.h"
+#include "Stack.hpp"
 #include <ncurses.h>
+
+int printMenu();
 
 int main(int argc, char** argv){
 	initscr();
