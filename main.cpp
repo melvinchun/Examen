@@ -14,7 +14,8 @@ int main(int argc, char** argv){
     init_pair(5, COLOR_CYAN, -1);
     keypad(stdscr, TRUE);
 
-    int userInput;
+    int userInput=printMenu();
+
 
 
 
@@ -23,26 +24,28 @@ int main(int argc, char** argv){
 }
 
 int printMenu(){
+	int i, j;
+	getmaxyx(stdscr,i,j);
 	clear();
-	char menu[4][35] = {"Agregar Magia","Eliminar Magia","Imprimir todas las magias","Salir"};
-	int retVal=4;
-	int maxY, maxX;
+	char menu[3][35] = {"Push","Pop","Salir"};
+	int retVal=3;
+	
 	
 	mvprintw(0,0, "-------MENU-------\n");
 	mvprintw(8,0, "Presione enter para continuar");
 	int input;
 	do{
-		for(int i = 0; i < 4; i++){
-			if(retVal-1 == i){
+		for(int ii = 0; ii < 3; ii++){
+			if(retVal-1 == ii){
 				attrset(A_BOLD | COLOR_PAIR(2));
 			}
-			mvprintw(i+1,0,menu[i]);
+			mvprintw(i/3+ii,j/2,menu[ii]);
 			attroff(A_BOLD | COLOR_PAIR(2));
 		}
-		printw("\nSeleccione su opcion con las FLECHAS\n");
+		mvprintw(0,0,"Su opcion con las flechas");
 		input = getch();
 		if(input == KEY_DOWN || input == KEY_RIGHT){
-			if(retVal<4)
+			if(retVal<3)
 				retVal++;
 		}else if(input == KEY_UP || input == KEY_LEFT){
 			if(retVal>1)
