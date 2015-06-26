@@ -2,8 +2,7 @@
 
 
 Stack::Stack(){
-	size = 1;
-	array = new int[size];
+	size = 0;
 }
 
 Stack::Stack(const Stack& other):size(other.size), array(new int[other.size]){
@@ -22,7 +21,8 @@ void Stack::push(int newNumber){
 		stackTemp[i] = array[i];
 	}
 	stackTemp[size-1] = newNumber;
-	delete[] array;
+	if(size > 1)
+		delete[] array;
 	array = stackTemp;
 }
 

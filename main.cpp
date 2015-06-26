@@ -37,12 +37,14 @@ int main(int argc, char** argv){
     			getch();
     		}catch(const char* str){
     			clear();
-    			mvaddstr(i/3-2, j/2-27/2,str); 
+    			mvaddstr(i/3-2, j/2-27/2,str);
     			getch();
     		}
     		
     	}else if(in==3){
-
+    		clear();
+			mvaddstr(i/3-2, j/2-27/2,"Dream Team");
+			getch();
     	}
     }while(in!=3);
 
