@@ -29,14 +29,14 @@ void Stack::push(int newNumber){
 int Stack::pop(){
 	int resp=0;
 	if(size>0){
-		resp=array[size-1];
-		int* temp=new int[size-1];
+		resp=array[--size];
+		int* temp=new int[size];
 
-		for (int i = 0; i <size-1; ++i){
+		for (int i = 0; i <size; ++i){
 			temp[i]=array[i];
 		}
-
-		array= new int[size-1];
+		delete[] array;
+		array = new int[size];
 		for (int i = 0; i < size; ++i){
 			array[i]=temp[i];
 		}
