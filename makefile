@@ -3,4 +3,4 @@ exe: main.cpp Stack.o
 Stack.o: Stack.hpp Stack.cpp
 	g++ -c Stack.cpp
 rm:
-	rm *.o
+	rm *.o exe
